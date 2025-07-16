@@ -61,7 +61,7 @@ describe('DefaultTicketService', () => {
 
   test('calculates correct payment and seat count', async () => {
     const { default: TicketPaymentService } = await import('../src/thirdparty/paymentgateway/TicketPaymentService.js');
-    const { default: SeatReservationService } = await import('../src/thirdparty/seatreservation/SeatReservationService.js');
+    const { default: SeatReservationService } = await import('../src/thirdparty/seatbooking/SeatReservationService.js');
 
     const mockPayment = TicketPaymentService.mock.instances[0].makePayment;
     const mockReserve = SeatReservationService.mock.instances[0].reserveSeat;
