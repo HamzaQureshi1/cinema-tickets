@@ -45,25 +45,31 @@ assignSeats(arrayItem) {
      let countOfAdultTickets = 0;
     let countOfInfantTickets =0;
     let countOfChildTickets =0;
+    let assign = 0;
+    let seats =0;
 
     // so in a total request we want to check that if there are 25 adults 
   
   requests.forEach((arrayItem)=>{
 
-    totalNumberOfTickets += arrayItem.getNoOfTickets();
+    totalNumberOfTickets = arrayItem.getNoOfTickets();
     ticketType = arrayItem.getTicketType();
    
     if (ticketType == 'ADULT'){
       countOfAdultTickets += totalNumberOfTickets;
+      console.log(countOfAdultTickets, 'adult tickets')
+      
     }
     else if(ticketType == 'CHILD') {
       countOfChildTickets += totalNumberOfTickets
+      console.log(countOfChildTickets, 'child tickets')
     }
      else if(ticketType == 'INFANT') {
-      countOfInfantTickets += totalNumberOfTickets
+      countOfInfantTickets += totalNumberOfTickets  
+      console.log(countOfInfantTickets, 'infant tickets')
     }
-
-
+      assign += this.assignPrice(arrayItem);
+      seats += this.assignSeats(arrayItem);
     })
 
     const totalOfAllTickets  = countOfAdultTickets + countOfChildTickets + countOfInfantTickets;
@@ -74,10 +80,10 @@ assignSeats(arrayItem) {
 
 
     if (countOfAdultTickets >= countOfChildTickets || countOfAdultTickets >= countOfInfantTickets || countOfAdultTickets >= countOfChildTickets +countOfInfantTickets) {
-      const ticketPrice = this.assignPrice(arrayItem);
-    totalPrice +=ticketPrice
-    const seats = this.assignSeats(arrayItem);
-    totalSeat += seats;
+     
+    totalPrice = assign;
+    
+    totalSeat = seats;
 
 
 }
