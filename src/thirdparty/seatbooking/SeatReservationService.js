@@ -9,5 +9,6 @@ export default class SeatReservationService {
     if (!Number.isInteger(totalSeatsToAllocate)) {
       throw new TypeError('totalSeatsToAllocate must be an integer');
     }
+    console.log(` ${totalSeatsToAllocate} SEATS reserved `)
   }
 }
